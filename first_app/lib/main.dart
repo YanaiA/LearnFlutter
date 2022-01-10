@@ -1,4 +1,6 @@
 import 'package:flutter/material.dart';
+import 'question.dart';
+import 'answer.dart';
 
 void main() {
   runApp(MyApp());
@@ -14,8 +16,14 @@ class MyApp extends StatefulWidget {
 class _MyAppState extends State {
   var _questionIndex = 0;
   final _questions = [
-    'Question 1',
-    'Question 2',
+    {
+      'questionText': 'Best color?',
+      'answers': ['Blue', 'White']
+    },
+    {
+      'questionText': 'Best animal?',
+      'answers': ['dog', 'cat']
+    }
   ];
 
   void _answerQuestion() {
@@ -34,17 +42,9 @@ class _MyAppState extends State {
         ),
         body: Column(
           children: <Widget>[
-            Text(
-              _questions[_questionIndex],
-            ),
-            ElevatedButton(
-              onPressed: _answerQuestion,
-              child: Text('Answer 1'),
-            ),
-            ElevatedButton(
-              onPressed: _answerQuestion,
-              child: Text('Answer 2'),
-            ),
+            Question(_questions[_questionIndex]['questionText']),
+            Answer(_answerQuestion),
+            Answer(_answerQuestion),
           ],
         ),
       ),
