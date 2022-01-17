@@ -4,16 +4,16 @@
 // 3) Split the app into three widgets: App, TextControl & Text
 
 import 'package:flutter/material.dart';
+import 'TextControlWidget.dart';
 
-class MainWidget extends StatefulWidget {
-  const MainWidget({Key? key}) : super(key: key);
+class AppWidget extends StatefulWidget {
+  const AppWidget({Key? key}) : super(key: key);
 
   @override
-  _MainWidgetState createState() => _MainWidgetState();
+  _AppWidgetState createState() => _AppWidgetState();
 }
 
-class _MainWidgetState extends State<MainWidget> {
-  final _texts = ["this is a text", "this is another text"];
+class _AppWidgetState extends State<AppWidget> {
   var _currentText = 0;
 
   void _switchText() {
@@ -29,19 +29,11 @@ class _MainWidgetState extends State<MainWidget> {
           appBar: AppBar(
             title: const Text("This is AppBar"),
           ),
-          body: Column(
-            children: [
-              Text(_texts[_currentText]),
-              ElevatedButton(
-                onPressed: _switchText,
-                child: Text("Press me"),
-              )
-            ],
-          )),
+          body: TextControlWidget(_currentText, _switchText)),
     );
   }
 }
 
 void main() {
-  runApp(MainWidget());
+  runApp(const AppWidget());
 }
