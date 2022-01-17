@@ -1,4 +1,4 @@
-# flutter_assignment
+# first_assignment
 
 A new Flutter project.
 

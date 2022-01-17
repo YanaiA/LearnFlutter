@@ -13,20 +13,35 @@ class MainWidget extends StatefulWidget {
 }
 
 class _MainWidgetState extends State<MainWidget> {
+  final _texts = ["this is a text", "this is another text"];
+  var _currentText = 0;
+
+  void _switchText() {
+    setState(() {
+      _currentText++;
+    });
+  }
+
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
-      appBar: AppBar(
-        title: const Text("This is AppBar"),
-      ),
+    return MaterialApp(
+      home: Scaffold(
+          appBar: AppBar(
+            title: const Text("This is AppBar"),
+          ),
+          body: Column(
+            children: [
+              Text(_texts[_currentText]),
+              ElevatedButton(
+                onPressed: _switchText,
+                child: Text("Press me"),
+              )
+            ],
+          )),
     );
   }
 }
 
 void main() {
-  runApp(
-    const MaterialApp(
-      home: MainWidget(),
-    ),
-  );
+  runApp(MainWidget());
 }

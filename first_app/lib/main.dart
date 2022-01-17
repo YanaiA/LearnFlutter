@@ -42,7 +42,7 @@ class _MyAppState extends State {
         ),
         body: Column(
           children: <Widget>[
-            Question(_questions[_questionIndex]['questionText']),
+            Question(_questions[_questionIndex]['questionText'] as String),
             Answer(_answerQuestion),
             Answer(_answerQuestion),
           ],
